@@ -1,11 +1,13 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-if gem list --no-installed --exact --silent foreman; then
+# Verifica si foreman está instalado, si no, lo instala
+if ! gem list --no-installed --exact --silent foreman; then
   echo "Installing foreman..."
   gem install foreman
 fi
 
-# Default to port 3000 if not specified
+# Configura el puerto predeterminado a 3000 si no está especificado
 export PORT="${PORT:-3000}"
 
-exec foreman start -f Procfile.dev --env /dev/null "$@"
+# Inicia los procesos usando el Procfile
+exec foreman start -f Procfile --env /dev/null "$@"

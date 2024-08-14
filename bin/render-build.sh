@@ -4,6 +4,9 @@ set -e
 # Instala las gemas necesarias
 bundle install
 
+#Miga la base de datos
+bundle exec rails db:migrate
+
 # Instala las dependencias de npm
 npm install
 
