@@ -7,6 +7,9 @@ bundle install
 #Miga la base de datos
 bundle exec rails db:migrate
 
+# Cargar datos de seeds
+bundle exec rails db:seed
+
 # Instala las dependencias de npm
 npm install
 
